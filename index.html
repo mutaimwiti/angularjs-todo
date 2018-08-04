@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS Todo</title>
+    <link rel="stylesheet" href="app.css" type="text/css">
+</head>
+<body>
+    <div ng-app="app" ng-controller="appController" ng-cloak id="app">
+        <form ng-submit="add()">
+            <input id="add" ng-model="item">
+        </form>
+        <div id="items">
+            <div ng-repeat="item in items" ng-cloak class="item">
+                <div>
+                    <b>{{ item.name }}</b> status: {{ status(item) }}
+                </div>
+                <div class="item-buttons">
+                    <button ng-click="proceed(item)" ng-bind="nextStateCaption(item)"></button>
+                    <button ng-click="remove(item)">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
